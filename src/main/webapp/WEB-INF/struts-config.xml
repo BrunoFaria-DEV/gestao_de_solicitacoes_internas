@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+    "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="UsuarioDto" type="br.edu.ifmt.cba.DTO.UsuarioDto"/>
+    </form-beans>
+
+    <action-mappings>
+    
+        <action
+                name="UsuarioDto"
+				path="/usuarios" 
+                type="br.edu.ifmt.cba.Action.UsuarioAction"
+                scope="request"
+                parameter="parameter"
+                validate="false">
+            <forward name="inicio" path="/WEB-INF/jsp/usuarios/index.jsp"/>
+            <forward name="novo" path="/WEB-INF/jsp/usuarios/create.jsp"/>
+            <forward name="editar" path="/WEB-INF/jsp/usuarios/edit.jsp"/>
+        </action>
+        
+    </action-mappings>
+    
+     <message-resources parameter="br.edu.cba.ifmt.Message.MessageBundle" />
+</struts-config>

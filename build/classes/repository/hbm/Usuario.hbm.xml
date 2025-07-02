@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "https://hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping package="br.edu.cba.ifmt.Model">
+    <class name="br.edu.ifmt.cba.Model.Usuario" table="Usuario">
+        <id name="id" column="id">
+            <generator class="sequence">
+            	<param name="sequence">Usuario_id_seq</param>
+            </generator>
+        </id>
+        <property name="nome" column="nome" type="string"/>
+        <property name="email" column="email" type="string"/>
+        <property name="senha" column="senha" type="string"/>
+        <property name="senha" column="senha" type="string"/>
+        <property name="perfil" column="perfil" type="string"/>
+    </class>
+</hibernate-mapping>
