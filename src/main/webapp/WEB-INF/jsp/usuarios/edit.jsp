@@ -15,15 +15,10 @@
     <div class="form-container">
         <div class="header-with-button space-between">
        		<h2>Editar Usuário</h2>
-			<html:link page="/usuarios.do" styleClass="button-link">Voltar</html:link>
+			<html:link page="/usuarios.do?parameter=inicio" styleClass="button-link">Voltar</html:link>
         </div>
         
-  		<html:form action="usuariosAtualizar.do" method="POST">
-	  		<html:hidden property="id" />
-
-		    <c:if test="${not empty errors}">
-		        <div class="alert-danger">${errors}</div>
-		    </c:if>
+  		<html:form action="usuarios.do?parameter=atualizar&usuario_id=${usuario.id}" method="POST">
 		    
 		    <div class="form-group">
 		        <label for="nome">Nome:</label>
@@ -36,15 +31,16 @@
 		    </div>
 		    
 		    <div class="form-group">
-		        <label for="cpf">CPF:</label>
-		        <html:text property="cpf" styleId="cpf" styleClass="form-control" maxlength="14" />
+		        <label for="senha">Senha:</label>
+		        <html:text property="senha" styleId="senha" styleClass="form-control" />
 		    </div>
-		    
+		   
 		    <div class="form-group">
-		        <label for="municipio_id">Município:</label>
-		        <html:select property="city.id" styleId="municipio_id" styleClass="form-control">
-		            <html:option value="">Selecione um município</html:option>
-       				<html:optionsCollection name="cities" label="nome" value="id" />
+		        <label for="perfil">Perfil:</label>
+		        <html:select property="perfil" styleId="perfil" styleClass="form-control">
+       				<c:forEach var="perfil" items="${perfis}">
+			            <option value="${perfil}">${perfil}</option>
+			        </c:forEach>
 		        </html:select>
 		    </div>
 		

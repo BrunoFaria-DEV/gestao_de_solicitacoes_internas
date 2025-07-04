@@ -10,7 +10,7 @@ public class HibernateUtil {
 	//bloco estático
 	static {
 		try {
-			sessionFactory = new Configuration().configure().buildSessionFactory();
+			sessionFactory = new Configuration().configure("/repository/hibernate.cfg.xml").buildSessionFactory();
 		} catch (Throwable e) {
 			throw new ExceptionInInitializerError(e);
 		}

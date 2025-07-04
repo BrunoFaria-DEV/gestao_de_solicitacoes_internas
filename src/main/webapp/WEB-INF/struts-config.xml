@@ -6,9 +6,20 @@
 <struts-config>
     <form-beans>
         <form-bean name="UsuarioDto" type="br.edu.ifmt.cba.DTO.UsuarioDto"/>
+        <form-bean name="LoginDto" type="br.edu.ifmt.cba.DTO.LoginDto"/>
     </form-beans>
 
     <action-mappings>
+    
+		<action
+               	name="LoginDto"
+				path="/login" 
+                type="br.edu.ifmt.cba.Action.LoginAction"
+                scope="request"
+                input="/WEB-INF/jsp/autenticacao/login.jsp">
+            <forward name="login" path="/WEB-INF/jsp/autenticacao/login.jsp"/>
+            <forward name="index" path="/usuarios.do?parameter=inicio" redirect="true"/>
+        </action>
     
         <action
                 name="UsuarioDto"

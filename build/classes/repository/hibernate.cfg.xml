@@ -8,18 +8,18 @@
 
         <property name="hibernate.dialect">net.sf.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/struts_jsp_hibernate</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/gestao_de_solicitacoes_internas</property>
         
-        <property name="hibernate.connection.username">struts_jsp_hibernate</property>
-        <property name="hibernate.connection.password">struts_jsp_hibernate</property>
+        <property name="hibernate.connection.username">gestao_de_solicitacoes_internas</property>
+        <property name="hibernate.connection.password">gestao_de_solicitacoes_internas</property>
 
         <property name="hibernate.connection.pool_size">1</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
 
         <mapping resource="repository/hbm/Usuario.hbm.xml"/>
-        <mapping resource="repository/hbm/Departamento.hbm.xml"/>
-        <mapping resource="repository/hbm/Solicitacao.hbm.xml"/>
+<!--         <mapping resource="repository/hbm/Departamento.hbm.xml"/>
+        <mapping resource="repository/hbm/Solicitacao.hbm.xml"/> -->
 		
     </session-factory>
 </hibernate-configuration>
