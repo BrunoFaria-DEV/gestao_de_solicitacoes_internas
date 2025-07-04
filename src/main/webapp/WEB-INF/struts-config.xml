@@ -13,12 +13,21 @@
     
 		<action
                	name="LoginDto"
+				path="/loginPage" 
+                type="br.edu.ifmt.cba.Action.LoginPageAction"
+                scope="request"
+                input="/WEB-INF/jsp/autenticacao/login.jsp">
+            <forward name="login" path="/WEB-INF/jsp/autenticacao/login.jsp"/>
+            <forward name="inicio" path="/usuarios.do?parameter=inicio" redirect="true"/>
+        </action>
+    
+		<action
+               	name="LoginDto"
 				path="/login" 
                 type="br.edu.ifmt.cba.Action.LoginAction"
                 scope="request"
                 input="/WEB-INF/jsp/autenticacao/login.jsp">
-            <forward name="login" path="/WEB-INF/jsp/autenticacao/login.jsp"/>
-            <forward name="index" path="/usuarios.do?parameter=inicio" redirect="true"/>
+            <forward name="inicio" path="/usuarios.do?parameter=inicio" redirect="true"/>
         </action>
     
         <action

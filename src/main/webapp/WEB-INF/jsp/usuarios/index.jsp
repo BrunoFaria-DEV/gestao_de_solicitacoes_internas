@@ -36,8 +36,7 @@
 					<td>${usuario.email}</td>
 					<td>
 						<html:link page="/usuarios.do?parameter=editar" paramId="usuario_id" paramProperty="id" paramName="usuario" styleClass="button-link">Editar</html:link>
-				        <html:form action="usuarios.do?parameter=excluir" method="POST" style="display:inline; margin-left: 5px;">
-				            <input type="hidden" name="id" value="${usuario.id}">
+				        <html:form action="usuarios.do?parameter=excluir&usuario_id=${usuario.id}" method="POST" style="display:inline; margin-left: 5px;">
 				            <button type="submit" class="btn btn-danger btn-sm" 
 				                    onclick="return confirm('Tem certeza que deseja excluir o usuário \'${usuario.nome}\'?');">
 				                Excluir

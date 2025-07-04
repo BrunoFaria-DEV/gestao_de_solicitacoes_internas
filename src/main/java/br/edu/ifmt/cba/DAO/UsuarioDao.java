@@ -24,7 +24,6 @@ public class UsuarioDao {
 	        Query countQuery = session.createQuery("select count(*) from Usuario");		
 	        
 	        paginatedResult = SimplePagination.HibernateCompletePagination(query, countQuery, pageNumber, pageSize);
-	        return paginatedResult;
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
@@ -46,7 +45,6 @@ public class UsuarioDao {
 	        Query countQuery = session.createQuery("select count(*) from Usuario");		
 	        
 	        paginatedResult = SimplePagination.HibernateCompletePagination(query, countQuery, pageNumber, pageSize);
-	        return paginatedResult;
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
@@ -58,16 +56,21 @@ public class UsuarioDao {
 	
 	public Usuario getByEmail(String email) {
 		Usuario usuario = null;
+		Transaction transaction = null;
 		Session session = SessionUtil.sessionOpen(_sessionFactory);
 		
         if (session == null) 
 			return usuario;
 		
         try {
-        	return (Usuario) session.createQuery("select usuario where senha = : email")
-				                    .setParameter("email", email)
-				                    .uniqueResult();
+        	transaction = session.beginTransaction();
+        	
+        	usuario = (Usuario) session.createQuery("from Usuario where email = :email")
+							        	.setString("email", email)
+							        	.uniqueResult();
+        	transaction.commit();
 		} catch (HibernateException e) {
+			SessionUtil.sessionTransactionRollback(transaction);
 			e.printStackTrace();
 		} finally {
 			SessionUtil.sessionClose(session);

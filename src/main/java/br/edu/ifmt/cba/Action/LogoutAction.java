@@ -13,7 +13,7 @@ import br.edu.ifmt.cba.DAO.UsuarioDao;
 import br.edu.ifmt.cba.DTO.LoginDto;
 import br.edu.ifmt.cba.Model.Usuario;
 
-public class LoginAction extends Action{
+public class LogoutAction extends Action{
 	private UsuarioDao _usuarioDao = new UsuarioDao();
 	
 	@Override
